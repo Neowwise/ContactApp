@@ -2,7 +2,7 @@ package ContactApp;
 public class Contact extends ContactManager{
 	private String name;
 	private String surname;
-	private String phonenumber;
+	private int phonenumber;
 	private String email;	
 
 	public String getName() {
@@ -17,10 +17,10 @@ public class Contact extends ContactManager{
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public String getPhonenumber() {
+	public int getPhonenumber() {
 		return phonenumber;
 	}
-	public void setPhonenumber(String phonenumber) {
+	public void setPhonenumber(int phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 	public String getEmail() {

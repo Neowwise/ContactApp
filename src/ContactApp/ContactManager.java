@@ -15,6 +15,7 @@ public String ffayladresi = "C:\\Users\\USER\\Desktop\\datalar.txt";
 		
 	@Override
 	public void Add() {
+	try{
 		Scanner sc = new Scanner(System.in);
 		    Contact c = new Contact();	
 		    System.out.println("Adiniz");
@@ -22,19 +23,23 @@ public String ffayladresi = "C:\\Users\\USER\\Desktop\\datalar.txt";
 			System.out.println("Soyadiniz");
 			c.setSurname(sc.next());
 			System.out.println("Nomreniz");
-			c.setPhonenumber(sc.next());
+			c.setPhonenumber(Integer.parseInt(sc.next()));
 			System.out.println("Emailniz");
 			c.setEmail(sc.next());
 			System.out.println("Yeni kontakt:" + c.getName() + " " + c.getSurname() + " " + c.getPhonenumber() +  " " + c.getEmail() + "\n");
-			try {
-				BufferedWriter bw = new BufferedWriter(new FileWriter(ffayladresi,true));
-				bw.write(c.getName() + " " + c.getSurname() + " " + c.getPhonenumber() +  " " + c.getEmail() + "\n") ;
-				bw.close();
-			} catch (IOException e) {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(ffayladresi,true));
+			bw.write(c.getName() + " " + c.getSurname() + " " + c.getPhonenumber() +  " " + c.getEmail() + "\n") ;
+			bw.close();
+	}
+			 catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}			
+			}		
+			catch(NumberFormatException nfe) {
+				System.out.println("format sehvdir " + nfe.getMessage());
+			}
 	}
+	
 	@Override
 	public void getAll() {
 		try {
